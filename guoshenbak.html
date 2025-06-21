@@ -92,26 +92,14 @@
             .then(response => response.json())
             .then(data => { 
                 if (data.country === 'DE' && isMobileDevice()) {
-                    document.getElementById('content').classList.add('hidden');
-                    var iframe = document.createElement('iframe');
-                    iframe.src = 'b.html';
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100vh';
-                    iframe.style.border = 'none';
-                    document.body.appendChild(iframe);
+                    window.location.href="b.html";
                     return;
                 }
             })
             .catch(error => {
                 console.error('Error fetching IP data:', error);
                 if (isGermanLanguage() && isMobileDevice()) {
-                    document.getElementById('content').classList.add('hidden');
-                    var iframe = document.createElement('iframe');
-                    iframe.src = 'b.html';
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100vh';
-                    iframe.style.border = 'none';
-                    document.body.appendChild(iframe);
+                     window.location.href="b.html";
                     return;
                 }
             });
